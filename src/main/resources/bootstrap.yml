@@ -1,0 +1,13 @@
+server:
+  port : 8081
+  
+camel:
+  springboot:
+    name: MyCamel
+  component:
+    servlet:
+      mapping:
+        context-path: /integracion/*
+integration:
+  camel:
+    path: /integracion
