@@ -3,6 +3,7 @@ package org.ingeniods.integration.configuration;
 import org.apache.camel.component.jsonvalidator.JsonSchemaLoader;
 import org.apache.camel.component.jsonvalidator.JsonValidatorErrorHandler;
 import org.ingeniods.integration.shared.jsvalidation.JsonValidatorExceptionHandler;
+import org.ingeniods.integration.shared.jsvalidation.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
@@ -20,8 +21,8 @@ public class JsonSpecsConfig {
   }
 
   @Bean(name = "jsonSchemaErrorHandler")
-  public JsonValidatorErrorHandler errorHandler(@Autowired ObjectMapper mapper) {
-    return new JsonValidatorExceptionHandler( mapper);
+  public JsonValidatorErrorHandler errorHandler(@Autowired ObjectMapper mapper, @Autowired MessageService messageService) {
+    return new JsonValidatorExceptionHandler(messageService, mapper);
   }
 
 }

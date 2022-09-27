@@ -1,0 +1,25 @@
+{
+  "integrationName": "universities",
+  "messages": [
+    {
+      "path": "$.name",
+      "defaultValue": "El valor del dato no es permitido",
+      "description": {
+        "unionType": "El tipo no es permitido",
+        "maxLength": "La longitud no es permitida"
+      }
+    },
+    {
+      "path": "$.domains",
+      "defaultValue": "El valor del dato no es permitido",
+      "description": {}
+    },
+    {
+      "path": "$.domains[n]",
+      "defaultValue": "El valor del dominio no es permitido",
+      "description": {
+        "pattern": "La ruta del dominio es incorrecta"
+      }
+    }
+  ]
+}

@@ -53,7 +53,7 @@ public class IntegrationOperationBase extends RouteBuilder {
 	private void readCountryResponse() {
 		from("direct:processcountry").split(body())
 		.parallelProcessing().timeout(1000)
-		.to(EndpointUtil.getTransformationPath(COUNTRY))
+		.to(EndpointUtil.getTransformationPath())
 		.to("direct:requestUniversities")
 		.end();
 	}
@@ -108,7 +108,7 @@ public class IntegrationOperationBase extends RouteBuilder {
 	}
 
 	public String getValidationPath() {
-		return "json-validator:integration/downstream/universities/schema.json?errorHandler=#bean:jsonSchemaErrorHandler&schemaLoader=#bean:mySchemaLoader";
+		return "json-validator:integration/downstream/schema.json?errorHandler=#bean:jsonSchemaErrorHandler&schemaLoader=#bean:mySchemaLoader";
 	}
 
 }

@@ -5,8 +5,8 @@ public class EndpointUtil {
 	private static final long TIMEOUT = 240000;
 	private static final int CONCURRENT_CONSUMERS = 1;
 
-	public static String getTransformationPath(String name) {
-		return "jolt:integration/downstream/" + name + "/jolt.json";
+	public static String getTransformationPath() {
+		return "jolt:integration/downstream/jolt.json";
 	}
 
 	public static String getCamelRoute(String name) {
